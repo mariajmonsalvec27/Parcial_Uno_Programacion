@@ -36,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Datos generados por la aplicacion ###
+datos/
+comprobantes/
