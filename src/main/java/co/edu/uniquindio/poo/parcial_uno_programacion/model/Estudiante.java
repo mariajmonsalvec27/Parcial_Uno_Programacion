@@ -116,6 +116,15 @@ public class Estudiante {
         this.fechaRegistro = fechaRegistro;
     }
 
+    //dos estudiantes son el mismo si tienen el mismo documento (equals y hashCode deben ir juntos)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Estudiante)) return false;
+        Estudiante otro = (Estudiante) o;
+        return Objects.equals(documentoIdentidad, otro.documentoIdentidad);
+    }
+
     @Override
     public int hashCode(){
         return Objects.hashCode(documentoIdentidad);

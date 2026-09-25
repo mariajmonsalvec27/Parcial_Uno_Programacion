@@ -22,6 +22,7 @@ public abstract class ProgramaFormacion {
         this.codigo = codigo;
         this.nombre = nombre;
         this.idioma = idioma;
+        this.descripcion = descripcion;
         setDuracionMeses(duracionMeses);
         setValorMensual(valorMensual);
         this.modalidad = modalidad;
@@ -122,8 +123,9 @@ public abstract class ProgramaFormacion {
         return new ArrayList<>(beneficios);
     }
 
+    //se copia la lista para que nadie modifique la lista interna desde afuera
     public void setBeneficios(List<Beneficio> beneficios) {
-        this.beneficios = beneficios;
+        this.beneficios = new ArrayList<>(beneficios);
     }
 
     @Override
