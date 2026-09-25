@@ -93,7 +93,18 @@ public class MatriculaController {
     @FXML
     private void onAgregarServicio() {
         ServicioAdicional servicio = cbServicio.getValue();
-        if (servicio != null && !lvServicios.getItems().contains(servicio)) {
+
+        if (servicio == null) {
+            Alertas.error("Seleccione un servicio");
+            return;
+        }
+
+        if (!servicio.isDisponible()) {
+            Alertas.error("El servicio seleccionado no está disponible");
+            return;
+        }
+
+        if (!lvServicios.getItems().contains(servicio)) {
             lvServicios.getItems().add(servicio);
         }
     }
