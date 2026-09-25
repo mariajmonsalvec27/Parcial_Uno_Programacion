@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.parcial_uno_programacion.controller.MatriculaController">
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+    <left>
+        <ScrollPane fitToWidth="true" prefWidth="300">
+            <VBox spacing="5">
+                <padding><Insets right="10"/></padding>
+                <Label text="Estudiante *"/>
+                <ComboBox fx:id="cbEstudiante" maxWidth="Infinity"/>
+                <Label text="Programa *"/>
+                <ComboBox fx:id="cbPrograma" maxWidth="Infinity"/>
+                <Label text="Fecha de inicio *"/>
+                <DatePicker fx:id="dpFechaInicio" maxWidth="Infinity"/>
+                <Label text="Docente tutor (solo personalizados)"/>
+                <HBox spacing="5">
+                    <ComboBox fx:id="cbDocente" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                    <Button text="Sin tutor" onAction="#onSinTutor"/>
+                </HBox>
+                <Label text="Servicios adicionales"/>
+                <HBox spacing="5">
+                    <ComboBox fx:id="cbServicio" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                    <Button text="+" onAction="#onAgregarServicio"/>
+                    <Button text="-" onAction="#onQuitarServicio"/>
+                </HBox>
+                <ListView fx:id="lvServicios" prefHeight="80"/>
+                <Label text="Descuento % (máximo 30)"/>
+                <TextField fx:id="txtDescuento"/>
+                <Label text="Observaciones"/>
+                <TextArea fx:id="txtObservaciones" prefRowCount="2" wrapText="true"/>
+                <FlowPane hgap="5" vgap="5">
+                    <Button text="Registrar" onAction="#onRegistrar"/>
+                    <Button text="Actualizar" onAction="#onActualizar"/>
+                    <Button text="Eliminar" onAction="#onEliminar"/>
+                    <Button text="Limpiar" onAction="#onLimpiar"/>
+                </FlowPane>
+            </VBox>
+        </ScrollPane>
+    </left>
+    <center>
+        <TableView fx:id="tabla">
+            <columns>
+                <TableColumn fx:id="colNumero" text="N°" prefWidth="45"/>
+                <TableColumn fx:id="colEstudiante" text="Estudiante" prefWidth="120"/>
+                <TableColumn fx:id="colPrograma" text="Programa" prefWidth="130"/>
+                <TableColumn fx:id="colFecha" text="Inicio" prefWidth="85"/>
+                <TableColumn fx:id="colTutor" text="Tutor" prefWidth="100"/>
+                <TableColumn fx:id="colEntrega" text="Material + carné" prefWidth="200"/>
+                <TableColumn fx:id="colTotal" text="Total" prefWidth="90"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <padding><Insets top="8"/></padding>
+            <Label text="Comprobante de la matrícula seleccionada:"/>
+            <ComboBox fx:id="cbFormato"/>
+            <Button text="Generar comprobante" onAction="#onGenerarComprobante"/>
+        </HBox>
+    </bottom>
+</BorderPane>

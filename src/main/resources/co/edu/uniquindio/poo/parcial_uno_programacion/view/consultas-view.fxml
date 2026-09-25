@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.parcial_uno_programacion.controller.ConsultasController" spacing="10">
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+    <Label text="Buscar estudiante por teléfono" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+    <HBox spacing="8">
+        <TextField fx:id="txtTelefono" promptText="Teléfono (ej: 33550336)"/>
+        <Button text="Buscar" onAction="#onBuscarTelefono"/>
+    </HBox>
+    <Label fx:id="lblResultadoTelefono"/>
+    <Separator/>
+    <Label text="Ingresos por periodo" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Desde"/>
+        <DatePicker fx:id="dpDesde"/>
+        <Label text="Hasta"/>
+        <DatePicker fx:id="dpHasta"/>
+        <Button text="Calcular" onAction="#onCalcularIngresos"/>
+    </HBox>
+    <Label fx:id="lblIngresos"/>
+</VBox>

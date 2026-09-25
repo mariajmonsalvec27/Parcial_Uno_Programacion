@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.parcial_uno_programacion.controller.DocenteController">
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+    <left>
+        <VBox spacing="5" prefWidth="260">
+            <padding><Insets right="10"/></padding>
+            <Label text="Identificación"/>
+            <TextField fx:id="txtIdentificacion"/>
+            <Label text="Nombre"/>
+            <TextField fx:id="txtNombre"/>
+            <Label text="Idioma de especialidad"/>
+            <TextField fx:id="txtIdioma"/>
+            <Label text="Teléfono"/>
+            <TextField fx:id="txtTelefono"/>
+            <Label text="Tarifa por sesión"/>
+            <TextField fx:id="txtTarifa"/>
+            <FlowPane hgap="5" vgap="5">
+                <Button text="Agregar" onAction="#onAgregar"/>
+                <Button text="Actualizar" onAction="#onActualizar"/>
+                <Button text="Eliminar" onAction="#onEliminar"/>
+                <Button text="Limpiar" onAction="#onLimpiar"/>
+            </FlowPane>
+        </VBox>
+    </left>
+    <center>
+        <TableView fx:id="tabla">
+            <columns>
+                <TableColumn fx:id="colIdentificacion" text="Identificación" prefWidth="100"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="160"/>
+                <TableColumn fx:id="colIdioma" text="Idioma" prefWidth="100"/>
+                <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="110"/>
+                <TableColumn fx:id="colTarifa" text="Tarifa/sesión" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.parcial_uno_programacion.controller.ProgramaController">
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+    <left>
+        <ScrollPane fitToWidth="true" prefWidth="280">
+            <VBox spacing="5">
+                <padding><Insets right="10"/></padding>
+                <Label text="Tipo de programa"/>
+                <ComboBox fx:id="cbTipo" maxWidth="Infinity"/>
+                <Label text="Código"/>
+                <TextField fx:id="txtCodigo"/>
+                <Label text="Nombre"/>
+                <TextField fx:id="txtNombre"/>
+                <Label text="Idioma"/>
+                <TextField fx:id="txtIdioma"/>
+                <Label text="Descripción"/>
+                <TextField fx:id="txtDescripcion"/>
+                <Label text="Duración (meses)"/>
+                <TextField fx:id="txtDuracion"/>
+                <Label text="Valor mensual"/>
+                <TextField fx:id="txtValorMensual"/>
+                <Label text="Modalidad"/>
+                <ComboBox fx:id="cbModalidad" maxWidth="Infinity"/>
+                <Label text="Estado"/>
+                <ComboBox fx:id="cbEstado" maxWidth="Infinity"/>
+                <Label text="Solo personalizado:" style="-fx-font-weight: bold;"/>
+                <Label text="Sesiones con tutor"/>
+                <TextField fx:id="txtSesiones"/>
+                <Label text="Nivel de idioma requerido"/>
+                <TextField fx:id="txtNivel"/>
+                <Label text="Objetivos del estudiante"/>
+                <TextField fx:id="txtObjetivos"/>
+                <FlowPane hgap="5" vgap="5">
+                    <Button text="Agregar" onAction="#onAgregar"/>
+                    <Button text="Actualizar" onAction="#onActualizar"/>
+                    <Button text="Eliminar" onAction="#onEliminar"/>
+                    <Button text="Limpiar" onAction="#onLimpiar"/>
+                </FlowPane>
+            </VBox>
+        </ScrollPane>
+    </left>
+    <center>
+        <TableView fx:id="tabla">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="70"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+                <TableColumn fx:id="colIdioma" text="Idioma" prefWidth="80"/>
+                <TableColumn fx:id="colModalidad" text="Modalidad" prefWidth="90"/>
+                <TableColumn fx:id="colEstado" text="Estado" prefWidth="90"/>
+                <TableColumn fx:id="colValor" text="Valor final" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

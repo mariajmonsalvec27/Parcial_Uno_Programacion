@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.parcial_uno_programacion.controller.ServicioController">
+    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+    <left>
+        <VBox spacing="5" prefWidth="260">
+            <padding><Insets right="10"/></padding>
+            <Label text="Código"/>
+            <TextField fx:id="txtCodigo"/>
+            <Label text="Nombre"/>
+            <TextField fx:id="txtNombre"/>
+            <Label text="Descripción"/>
+            <TextField fx:id="txtDescripcion"/>
+            <Label text="Precio"/>
+            <TextField fx:id="txtPrecio"/>
+            <CheckBox fx:id="chkDisponible" text="Disponible" selected="true"/>
+            <FlowPane hgap="5" vgap="5">
+                <Button text="Agregar" onAction="#onAgregar"/>
+                <Button text="Actualizar" onAction="#onActualizar"/>
+                <Button text="Eliminar" onAction="#onEliminar"/>
+                <Button text="Limpiar" onAction="#onLimpiar"/>
+            </FlowPane>
+        </VBox>
+    </left>
+    <center>
+        <TableView fx:id="tabla">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="70"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="170"/>
+                <TableColumn fx:id="colDescripcion" text="Descripción" prefWidth="200"/>
+                <TableColumn fx:id="colPrecio" text="Precio" prefWidth="90"/>
+                <TableColumn fx:id="colDisponible" text="Disponible" prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

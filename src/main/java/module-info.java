@@ -5,6 +5,8 @@ module co.edu.uniquindio.poo.parcial_uno_programacion {
 
     // la vista (JavaFX) necesita acceso por reflexion a la clase de la aplicacion
     opens co.edu.uniquindio.poo.parcial_uno_programacion.view to javafx.graphics, javafx.fxml;
+    // los controladores se conectan con los archivos FXML por reflexion
+    opens co.edu.uniquindio.poo.parcial_uno_programacion.controller to javafx.fxml;
 
     exports co.edu.uniquindio.poo.parcial_uno_programacion;
     exports co.edu.uniquindio.poo.parcial_uno_programacion.model;
