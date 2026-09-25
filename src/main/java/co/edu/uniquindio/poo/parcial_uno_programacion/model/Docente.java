@@ -57,6 +57,9 @@ public class Docente {
     }
 
     public void setTelefono(String telefono) {
+        if (telefono == null || telefono.isBlank()) {
+            throw new IllegalArgumentException("El teléfono es obligatorio");
+        }
         this.telefono = telefono;
     }
 

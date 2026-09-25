@@ -13,6 +13,7 @@ import co.edu.uniquindio.poo.parcial_uno_programacion.model.ProgramaIntensivo;
 import co.edu.uniquindio.poo.parcial_uno_programacion.model.ProgramaPersonalizado;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -48,6 +49,7 @@ public class ProgramaController {
     @FXML private TableColumn<ProgramaFormacion, String> colValor;
 
     private final IRepositorio<ProgramaFormacion> repositorio = Academia.getInstance().getProgramas();
+    private final ObservableList<ProgramaFormacion> listaProgramas = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -195,6 +197,8 @@ public class ProgramaController {
     }
 
     private void refrescar() {
-        tabla.setItems(FXCollections.observableArrayList(repositorio.listar()));
+        listaProgramas.setAll(repositorio.listar());
+        tabla.setItems(listaProgramas);
+        tabla.refresh();
     }
 }

@@ -5,6 +5,7 @@ import co.edu.uniquindio.poo.parcial_uno_programacion.model.Academia;
 import co.edu.uniquindio.poo.parcial_uno_programacion.model.ServicioAdicional;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
@@ -27,6 +28,7 @@ public class ServicioController {
     @FXML private TableColumn<ServicioAdicional, String> colDisponible;
 
     private final IRepositorio<ServicioAdicional> repositorio = Academia.getInstance().getServicios();
+    private final ObservableList<ServicioAdicional> listaServicios = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -110,6 +112,8 @@ public class ServicioController {
     }
 
     private void refrescar() {
-        tabla.setItems(FXCollections.observableArrayList(repositorio.listar()));
+        listaServicios.setAll(repositorio.listar());
+        tabla.setItems(listaServicios);
+        tabla.refresh();
     }
 }
