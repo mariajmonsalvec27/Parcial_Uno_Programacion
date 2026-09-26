@@ -5,6 +5,7 @@ import co.edu.uniquindio.poo.parcial_uno_programacion.model.Academia;
 import co.edu.uniquindio.poo.parcial_uno_programacion.model.Docente;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,19 +14,31 @@ import javafx.scene.control.TextField;
 //controlador del CRUD de docentes
 public class DocenteController {
 
-    @FXML private TextField txtIdentificacion;
-    @FXML private TextField txtNombre;
-    @FXML private TextField txtIdioma;
-    @FXML private TextField txtTelefono;
-    @FXML private TextField txtTarifa;
-    @FXML private TableView<Docente> tabla;
-    @FXML private TableColumn<Docente, String> colIdentificacion;
-    @FXML private TableColumn<Docente, String> colNombre;
-    @FXML private TableColumn<Docente, String> colIdioma;
-    @FXML private TableColumn<Docente, String> colTelefono;
-    @FXML private TableColumn<Docente, String> colTarifa;
+    @FXML
+    private TextField txtIdentificacion;
+    @FXML
+    private TextField txtNombre;
+    @FXML
+    private TextField txtIdioma;
+    @FXML
+    private TextField txtTelefono;
+    @FXML
+    private TextField txtTarifa;
+    @FXML
+    private TableView<Docente> tabla;
+    @FXML
+    private TableColumn<Docente, String> colIdentificacion;
+    @FXML
+    private TableColumn<Docente, String> colNombre;
+    @FXML
+    private TableColumn<Docente, String> colIdioma;
+    @FXML
+    private TableColumn<Docente, String> colTelefono;
+    @FXML
+    private TableColumn<Docente, String> colTarifa;
 
     private final IRepositorio<Docente> repositorio = Academia.getInstance().getDocentes();
+    private final ObservableList<Docente> listaDocentes = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -109,6 +122,9 @@ public class DocenteController {
     }
 
     private void refrescar() {
-        tabla.setItems(FXCollections.observableArrayList(repositorio.listar()));
+        listaDocentes.setAll(repositorio.listar());
+        tabla.setItems(listaDocentes);
+        tabla.refresh();
     }
+
 }

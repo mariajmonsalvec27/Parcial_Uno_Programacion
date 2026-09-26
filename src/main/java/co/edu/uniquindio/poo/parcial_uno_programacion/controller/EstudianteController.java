@@ -5,6 +5,7 @@ import co.edu.uniquindio.poo.parcial_uno_programacion.model.Academia;
 import co.edu.uniquindio.poo.parcial_uno_programacion.model.Estudiante;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -31,6 +32,7 @@ public class EstudianteController {
     @FXML private TableColumn<Estudiante, String> colFecha;
 
     private final IRepositorio<Estudiante> repositorio = Academia.getInstance().getEstudiantes();
+    private final ObservableList<Estudiante> listaEstudiante = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -119,7 +121,10 @@ public class EstudianteController {
         dpFechaRegistro.setValue(estudiante.getFechaRegistro());
     }
 
+    //corregi el error que el boton actualizar no reflejaba los cambios en la interfaz
     private void refrescar() {
-        tabla.setItems(FXCollections.observableArrayList(repositorio.listar()));
+        listaEstudiante.setAll(repositorio.listar());
+        tabla.setItems(listaEstudiante);
+        tabla.refresh();
     }
 }

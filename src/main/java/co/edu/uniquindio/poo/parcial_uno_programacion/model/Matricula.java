@@ -149,6 +149,10 @@ public class Matricula {
         }
 
         public Builder agregarServicio(ServicioAdicional servicio) {
+            if (servicio == null) {
+                throw new IllegalArgumentException("El servicio no puede ser nulo");
+            }
+
             this.servicios.add(servicio);
             return this;
         }

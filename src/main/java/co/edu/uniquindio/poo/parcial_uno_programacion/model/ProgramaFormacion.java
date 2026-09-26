@@ -53,6 +53,9 @@ public abstract class ProgramaFormacion {
     }
 
     public void setCodigo(String codigo) {
+        if (codigo == null || codigo.isBlank()) {
+            throw new IllegalArgumentException("El código del programa es obligatorio");
+        }
         this.codigo = codigo;
     }
 
@@ -61,6 +64,9 @@ public abstract class ProgramaFormacion {
     }
 
     public void setNombre(String nombre) {
+        if (nombre == null || nombre.isBlank()) {
+            throw new IllegalArgumentException("El nombre del programa es obligatorio");
+        }
         this.nombre = nombre;
     }
 
@@ -69,6 +75,9 @@ public abstract class ProgramaFormacion {
     }
 
     public void setIdioma(String idioma) {
+        if (idioma == null || idioma.isBlank()) {
+            throw new IllegalArgumentException("El idioma del programa es obligatorio");
+        }
         this.idioma = idioma;
     }
 
@@ -77,6 +86,9 @@ public abstract class ProgramaFormacion {
     }
 
     public void setDescripcion(String descripcion) {
+        if (descripcion == null || descripcion.isBlank()) {
+            throw new IllegalArgumentException("La descripción del programa es obligatoria");
+        }
         this.descripcion = descripcion;
     }
 
